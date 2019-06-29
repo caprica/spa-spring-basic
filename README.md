@@ -21,8 +21,6 @@ Key features:
 
 The names for the path prefixes used are arbitrary and can be changed to whatever you prefer.
 
-This is a minimal skeleton project, useful things like two-way JSON binding and so on are not fully integrated.
-
 Right now there is no client application integrated, this will come for ReactJS shortly and maybe AngularJS
 later (I simply like React way more).
 
@@ -38,6 +36,7 @@ Then open your browser at the following URLs to prove it's all configured proper
 http://localhost:8080
 http://localhost:8080/index.html
 http://localhost:8080/api/users
+http://localhost:8080/api/users/{username}
 http://localhost:8080/api/version
 http://localhost:8080/api/anything-else-does-not-exist
 http://localhost:8080/assets/css/index.css

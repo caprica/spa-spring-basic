@@ -41,7 +41,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"uk.co.caprica.spa.controller"})
+@ComponentScan(basePackages = {
+    "uk.co.caprica.spa.controller",
+    "uk.co.caprica.spa.service",
+    "uk.co.caprica.spa.repository"
+})
 public class SpaWebAppConfiguration implements WebMvcConfigurer {
 
     @Override

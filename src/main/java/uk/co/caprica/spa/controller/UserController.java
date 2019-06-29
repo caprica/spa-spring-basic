@@ -20,21 +20,37 @@
 
 package uk.co.caprica.spa.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import uk.co.caprica.spa.domain.User;
+import uk.co.caprica.spa.service.UserService;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * An example web service API controller.
  */
-@Controller
+@RestController
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/api/users", method = RequestMethod.GET)
-    @ResponseBody
-    public String users() {
-        return "I would return users if I were a proper API end-point";
+    public List<User> users() {
+        return userService.users();
+    }
+
+    @RequestMapping(value = "/api/users/{username}", method = RequestMethod.GET)
+    public ResponseEntity<User> user(@PathVariable("username") String username) {
+        Optional<User> user = userService.user(username);
+        return user.isPresent() ? new ResponseEntity<>(user.get(), HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }
