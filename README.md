@@ -48,4 +48,6 @@ http://localhost:8080/imagine/this/is/also/client/routing
 
 Your single page web application would be expected to be published at "WEB-INF/assets/index.html".
 
+Looking for a working ReactJS version of this project, here you are https://github.com/caprica/spa-spring-react.
+
 You're welcome.
